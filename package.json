@@ -37,19 +37,18 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+     "start": "react-scripts start",
+    "clean": "rimraf ./dist",
+    "lint": "eslint --ext js,ts,tsx src --max-warnings 5",
     "build": "npm run clean && npm run build-ts && npm run build-css",
     "test": "react-scripts test",
+    "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
-    "clean": "rimraf ./dist",
-    "test:nowatch": "cross-env CI=true react-script test",
-    "eslint": "eslint --ext ts,js,tsx src",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 9009 -s public",
-    "prepublishOnly": "npm run test:nowatch && npm run eslint && npm run build",
     "build-storybook": "build-storybook -s public",
-    "delete": "npm --force unpublish"
+    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
   },
   "husky": {
     "hooks": {
