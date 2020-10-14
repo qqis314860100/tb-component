@@ -9,7 +9,7 @@ import React, {
 } from 'react'
 import cls from 'classnames'
 import Input, { InputProps } from '../Input'
-import Icon from '../icon'
+import Icon from '../Icon'
 import useDebounce from '../hooks/useDebounce'
 import Transition from '../Transition/transition'
 import useClickOutside from '../hooks/useClickOutside'

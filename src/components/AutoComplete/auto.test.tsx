@@ -1,7 +1,7 @@
 import React from 'react'
 import { config } from 'react-transition-group'
 import { render, RenderResult, fireEvent, wait } from '@testing-library/react'
-import { AutoComplete, AutoCompleteProps } from './autoComplete'
+import { AutoComplete, AutoCompleteProps } from './index'
 
 config.disabled = true
 
@@ -41,5 +41,14 @@ describe('test autoComplete component', () => {
     expect(testProps.onSelect).toHaveBeenCalledWith({ value: 'ab', number: 11 })
     expect(wrapper.queryByText('ab')).not.toBeInTheDocument()
     expect(inputNode.value).toBe('ab')
+  })
+
+  it('should provide keyboard support', async () => {
+    fireEvent.change(inputNode, { target: { value: 'a' } })
+    await wait(() => {
+      expect(wrapper.queryByText('ab')).toBeInTheDocument()
+    })
+    const fistResult = wrapper.queryByText('ab')
+    const secondResult = wrapper.queryByText('abc')
   })
 })

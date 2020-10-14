@@ -7,7 +7,7 @@ import React, {
 import csl from 'classnames'
 import { MenuContext } from './menu'
 import { MenuItemProps } from './menuItem'
-import Icon from '../icon'
+import Icon from '../Icon'
 import Transition from '../Transition/transition'
 
 export interface SubMenuProps {

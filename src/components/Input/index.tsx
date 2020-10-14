@@ -6,7 +6,7 @@ import React, {
 } from 'react'
 import classNames from 'classnames'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import Icon from '../icon'
+import Icon from '../Icon'
 
 type InputSize = 'lg' | 'sm'
 

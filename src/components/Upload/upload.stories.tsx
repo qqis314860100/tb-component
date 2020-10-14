@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Upload } from '../Upload'
-import Icon from '../icon/index'
+import Icon from '../Icon/icon'
 import { action } from '@storybook/addon-actions'
 
 const SimleUpload = () => {
