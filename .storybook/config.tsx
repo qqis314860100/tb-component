@@ -20,9 +20,16 @@ const storyWrapper = (stroyFn: any) => (
   </div>
 )
 
+const loaderFn = () => {
+  const allExports = [require('../src/index.stories')]
+  const req = require.context('../src/components', true, /\.stories\.tsx$/)
+  req.keys().forEach((fname) => allExports.push(req(fname)))
+  return allExports
+}
+
 addDecorator(storyWrapper)
 addDecorator(withInfo)
 addParameters({ info: { inline: true, header: false } })
 
 // automatically import all files ending in *.stories.js
-configure(require.context('../src', true, /\.stories\.tsx$/), module)
+configure(loaderFn, module)
